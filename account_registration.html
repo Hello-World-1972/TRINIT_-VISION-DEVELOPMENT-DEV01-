@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Connect</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">NGO Connect</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Suggestions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Communication</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Community</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">News & Events</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+      <div class="container">
+        <h2>Profile Creation</h2>
+        <!-- NGO Profile Form -->
+        <form class="ngo-profile-form">
+          <div class="form-group">
+            <label for="ngo-name">NGO Name</label>
+            <input type="text" class="form-control" id="ngo-name" placeholder="Enter NGO Name">
+          </div>
+          <div class="form-group">
+            <label for="ngo-previous-works">Previous Works</label>
+            <textarea class="form-control" id="ngo-previous-works" rows="3" placeholder="Enter information about previous works"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="ngo-end-goal">End Goal</label>
+          <textarea class="form-control" id="ngo-end-goal" rows="3" placeholder="Enter end goal of the NGO"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="ngo-plans">Plans</label>
+          <textarea class="form-control" id="ngo-plans" rows="3" placeholder="Enter plans to achieve the end goal"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="ngo-impact">Impact</label>
+          <textarea class="form-control" id="ngo-impact" rows="3" placeholder="Enter impact on environment and society"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="ngo-funding-needs">Funding Needs</label>
+          <textarea class="form-control" id="ngo-funding-needs" rows="3" placeholder="Enter funding needs"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <!-- Philanthropist Profile Form -->
+      <form class="philanthropist-profile-form">
+        <div class="form-group">
+          <label for="philanthropist-name">Name</label>
+          <input type="text" class="form-control" id="philanthropist-name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="philanthropist-donation-preferences">Donation Preferences</label>
+          <textarea class="form-control" id="philanthropist-donation-preferences" rows="3" placeholder="Enter your donation preferences"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Search and Filter Section -->
+  <section class="search-filter-section">
+    <div class="container">
+      <h2>Search & Filter</h2>
+      <!-- Search Form -->
+      <form class="search-form">
+        <div class="form-group">
+          <label for="search-input">Search</label>
+          <input type="text" class="form-control" id="search-input" placeholder="Enter search criteria">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+      <!-- Filter Form -->
+      <form class="filter-form">
+        <div class="form-group">
+          <label for="location-select">Location</label>
+          <select class="form-control" id="location-select">
+            <option>All</option>
+            <option>USA</option>
+            <option>India</option>
+            <option>UK</option>
+          </select>
+        </div>
+       
+        <div class="form-group">
+            <label for="impact-area-select">Impact Area</label>
+            <select class="form-control" id="impact-area-select">
+              <option>All</option>
+              <option>Environment</option>
+              <option>Education</option>
+              <option>Healthcare</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ngo-type-select">NGO Type</label>
+            <select class="form-control" id="ngo-type-select">
+              <option>All</option>
+              <option>Non-Profit</option>
+              <option>Charitable</option>
+              <option>Religious</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Suggestion Algorithm Section -->
+<section class="suggestion-algorithm-section">
+    <div class="container">
+      <h2>Suggestions</h2>
+      <p>Based on your preferences, we suggest the following NGOs:</p>
+      <ul class="suggestion-list">
+        <li>NGO 1</li>
+        <li>NGO 2</li>
+        <li>NGO 3</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- Communication Tools Section -->
+  <section class="communication-tools-section">
+    <div class="container">
+      <h2>Communication Tools</h2>
+      <p>Connect with NGOs and learn more about them using the following tools:</p>
+      <ul class="communication-tools-list">
+        <li>Text Message</li>
+        <li>Video Meeting</li>
+        <li>Email</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- Community Features Section -->
+  <section class="community-features-section">
+    <div class="container">
+      <h2>Community Features</h2>
+      <p>Join groups, share ideas, and connect with others:</p>
+      <ul class="community-features-list">
+        <li>Join Groups</li>
+        <li>Share Ideas</li>
+        <li>Connect with others</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- News and Events Section -->
+  <section class="news-events-section">
+    <div class="container">
+      <h2>News & Events</h2>
+      <p>Stay up-to-date with the latest news and events related to NGOs and societal/environmental welfare programs:</p>
+      <ul class="news-events-list">
+        <li>News 1</li>
+        <li>News 2</li>
+        <li>Event 1</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+    </body>
+  </html>
+  

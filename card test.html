@@ -1,0 +1,52 @@
+
+<html>
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="shared-styles.html">
+
+
+<dom-module id="my-view6">
+    <template>
+      <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      </style>
+      <paper-input label="User Name" value={{username}} id="username" always-float-label maxlength="4" required error-message="Country Code Required"></paper-input>
+      <paper-input label="Mobile Number" always-float-label value={{mobile}} minlength="10" maxlength="16" allowed-pattern="[0-9]" id="mobile" required error-message="Phone number Required as per the country code scheme"></paper-input>
+      <paper-input label="Password" value={{password}} id="password" type="password" always-float-label minlength="6" required error-message="Password must be alleast 6 characters long">
+
+      <paper-card></paper-card>
+        <script>
+  <div id="chatContainer">
+  <div id="chatMessages">
+    <!-- Messages will be displayed here -->
+  </div>
+  <input type="text" id="chatInput">
+  <button id="sendButton">Send</button>
+</div>
+
+<script>
+  const chatContainer = document.getElementById("chatContainer");
+  const chatMessages = document.getElementById("chatMessages");
+  const chatInput = document.getElementById("chatInput");
+  const sendButton = document.getElementById("sendButton");
+
+  // Function to add a message to the chat window
+  const addMessage = (message) => {
+    chatMessages.innerHTML += `<div>${message}</div>`;
+  };
+
+  // Event listener for the send button
+  sendButton.addEventListener("click", () => {
+    addMessage(chatInput.value);
+    chatInput.value = "";
+  });
+</script>
+
+      </script>
+      </template>
+      </dom-module>
+    </html>

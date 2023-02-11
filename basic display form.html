@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   </head>
+	
+   <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><h1>WebSiteName</h1></a>
+          </div>
+      </nav>
+      
+      <form >
+         <h1>Organisation name: <input type = "text" name = "first_name" /></h1>
+         <br><br><br>
+         <h3>DETAILS OF HEAD</h3>
+         <br><br>
+         Lead Name: <input type = "text" name = "last_name" />
+         <br><br>
+         Lead ContactNumber: <input type = "text" name = "last_name" />
+         <br> <br>
+         Lead email id: <input type = "text" name = "last_name" />
+         <br> <br>
+         Description of Organization:<input type = "text" name = "last_name" />
+         <br><br>
+         <h3>CONTACT DETAILS OF PERSON 1</h3>
+         <br><br>
+         Lead Name: <input type = "text" name = "last_name" />
+         <br> <br>
+         Lead ContactNumber: <input type = "text" name = "last_name" />
+         <br> <br>
+         Lead email id: <input type = "text" name = "last_name" />
+         <br> <br>
+         <h3>CONTACT DETAILS OF PERSON 2</h3>
+         <br><br>
+         Lead Name: <input type = "text" name = "last_name" />
+         <br> <br>
+         Lead ContactNumber: <input type = "text" name = "last_name" />
+         <br> <br>
+         Lead email id: <input type = "text" name = "last_name" />
+      </form>
+   </body>
+   
+
+  <script type="module">
+
+    function myFunction() {
+     document.getElementById("myDropdown").classList.toggle("show");
+   }
+   
+   // Close the dropdown if the user clicks outside of it
+   window.onclick = function(event) {
+     if (!event.target.matches('.dropbtn')) {
+       var dropdowns = document.getElementsByClassName("dropdown-content");
+       var i;
+       for (i = 0; i < dropdowns.length; i++) {
+         var openDropdown = dropdowns[i];
+         if (openDropdown.classList.contains('show')) {
+           openDropdown.classList.remove('show');
+         }
+       }
+     }
+   }
+   
+    
+   
+       // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+    import { getDatabase,get, ref, set, child} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+   
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyClnfgse6jZ-ccztHOKz3wrYg5msn6ODPY",
+      authDomain: "banky-10edc.firebaseapp.com",
+      databaseURL: "https://banky-10edc-default-rtdb.firebaseio.com",
+      projectId: "banky-10edc",
+      storageBucket: "banky-10edc.appspot.com",
+      messagingSenderId: "399839387009",
+      appId: "1:399839387009:web:de5fa34c74737ec92ddc80",
+      measurementId: "G-R5HEJCBK6V"
+    };
+   
+    // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getDatabase();
+      function insertData(){
+          set(ref(db,"Registered/"+name.value),{
+              Name:name.value,
+              Email:email.value,
+              Password:password.value
+          }).then(()=>{
+              alert("Data is Entered");
+          }).catch((error)=>{
+              alert("Unsuccessful"+error);
+          });
+      } 
+     var name =  localStorage.getItem("passvalue");
+     document.getElementById("result").innerHTML=localStorage.getItem("passvalue");
+      selectData(name);
+      function selectData(name){
+        const dbr = ref(db);
+        get(child(dbr,"Registered/"+ name)).then((snapshot)=>{
+          if(snapshot.exists()){
+               var email = snapshot.val().email;
+               //const age =snapshot.val().Age;
+               const age=25;
+               var dob =snapshot.val().DOB;
+               var contno =snapshot.val().Contno;
+               document.getElementById("email").innerHTML = email;
+               document.getElementById("result").innerHTML=name;
+               document.getElementById("age").innerHTML=age;
+               document.getElementById("dob").innerHTML=dob;
+               document.getElementById("contno").innerHTML=contno;
+           
+          }
+        
+          else{
+            alert("No User Found !!");
+          }
+        }).catch((error)=>{
+          alert("Unsuccessful!"+error);
+        })
+      }
+   
+      function updateData(){
+        update(ref(db,"Registered/"+name.value),{
+              Email:email.value,
+              Password:password.value,
+          }).then(()=>{
+              alert("Data is Entered");
+          }).catch((error)=>{
+              alert("Unsuccessful"+error);
+          });
+        }
+   
+   function function1(){
+                   windows.location.href = "privacypolicy.html";
+               }
+   
+   
+   </script>
+</html>

@@ -1,0 +1,142 @@
+<html>
+ <meta charset="utf-8">
+  <title>RP Detection</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="box" >
+<h1>REGISTER NGO</h1>
+</br></br></br></br></br>
+    <label for="ngoname"></label>
+    <input type="text" id="ngoname" placeholder="NGOUsername"/>
+    <label for="Name of Head"></label>
+    <input type="text" id="name" placeholder="Username"/>
+    <label for="Email of Head"></label>
+    <input type="text" id="email" placeholder="Email"/>
+    <label for="contact Number of Head"></label>
+    <input type="text" id="contno" placeholder="Contact Number"/ >
+    <label for="Start Date of Organisation" class="standard-label">
+          <input class="standard-input" type="date" name="dob" id="dob" placeholder="Date Of Birth"/ required>
+        </label>
+    <select id="typeofngo">
+        <option value="VI">Virgin Islands, U.S.</option>
+        <option value="WF">Wallis and Futuna</option>
+        <option value="EH">Western Sahara</option>
+        <option value="YE">Yemen</option>
+        <option value="ZM">Zambia</option>
+        <option value="ZW">Zimbabwe</option>
+    </select>
+    <h1>CONTACT DETAILS</h1>
+    <label for="Name Of Person 1"></label>
+    <input type="text" id="pname1" placeholder="Username"/>
+    <label for="Email of Person1"></label>
+    <input type="text" id="email1" placeholder="Email"/>
+    <label for="contact Number of Person1"></label>
+    <input type="text" id="contno1" placeholder="Contact Number"/ >
+    <label for="Name of Person 2"></label>
+    <input type="text" id="pname2" placeholder="Username"/>
+    <label for="Email of Person2"></label>
+    <input type="text" id="email2" placeholder="Email"/>
+    <label for="contact Number of person2"></label>
+    <input type="text" id="contno2" placeholder="Contact Number"/ >
+    <button id="submitbutton" class="button button4" onclick=window.location.href="https.google.com" value="Register">Register</button>
+  
+
+</div>
+
+
+
+<div class="lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+ <script type="module">
+// Import the functions you need from the SDKs you need
+ //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+ //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+// import { initializeApp } from 'firebase/app';
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+import {
+  getAuth,
+  onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+//import { initializeAnalytics , getAnalytics } from 'firebase/analytics';
+  import { getDatabase,get, ref, set, child} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+              
+    // Your web app's Firebase configuration
+                const firebaseConfig = {
+                  apiKey: "AIzaSyDK52OBNT0o9yKK0ZRFtPtuLxQKECef83E",
+                  authDomain: "ngotable.firebaseapp.com",
+                  databaseURL: "https://ngotable-default-rtdb.firebaseio.com",
+                  projectId: "ngotable",
+                  storageBucket: "ngotable.appspot.com",
+                  messagingSenderId: "475152539177",
+                  appId: "1:475152539177:web:b2a1624b1c6f0591da0638"
+                };
+              
+ // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
+  //const analytics = getAnalytics(app);
+  const db=getDatabase();
+
+  var name = document.getElementById("name");
+  var pname1 = document.getElementById("pname1");
+  var pname2 = document.getElementById("pname2");
+  var ngoname= document.getElementById("ngoname");
+  var email = document.getElementById("email");
+  var contno=document.getElementById("contno");
+  var dob=document.getElementById("dob");
+  var typeofngo=document.getElementById("typeofngo");
+  var email1 = document.getElementById("email1");
+  var contno1=document.getElementById("contno1");
+  var email2 = document.getElementById("email2");
+  var contno2=document.getElementById("contno2");
+  var submitButton = document.getElementById("submitbutton");
+
+  
+  function insertData(){
+        set(ref(db,"Registered/"+name.value),{
+            Name:name.value,
+            NGOName:ngoname.value,
+            email:email.value,
+            Typeofngo:typeofngo.value,
+            DOB:dob.value,
+            PNAME1:pname1.value,
+            email1:email1.value,
+            Contactno1:contno1.value,
+            PNAME2:pname2.value,
+            email2:email2.value,
+            Contactno2:contno2.value,
+            Contno:contno.value
+        }).then(()=>{
+            alert("Data is Entered");
+            //window.location.href="logolog.html";
+        }).catch((error)=>{
+            alert("Unsuccessful"+error);
+        });
+    }
+
+    submitbutton.addEventListener("click",insertData);
+</script>
+
+</html>`
